@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-//    return view('welcome');
-    $redis = app()->make('redis');
-    $redis->set('key', 'value');
-    echo $redis->get('key');
+    return view('welcome');
 });
+
+Route::get('/articles', 'BlogController@index');
+Route::get('/article/{id}', 'BlogController@showArticle')->where('id', '[0-9]+');
